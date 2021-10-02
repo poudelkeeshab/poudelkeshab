@@ -1,0 +1,129 @@
+#include<stdio.h>
+#include<conio.h>
+#define CAPACITY 5
+int stack[CAPACITY],top = -1;
+void push(int);
+int pop();
+int isFull();
+int isEmpty();
+void transverse();
+void peek();
+void main(void)
+  {
+   int item;
+   int ch;
+  while(1)
+  {
+    printf("1.push\n");
+    printf("2.pop\n");
+    printf("3.peek\n");
+    printf("4.transverse\n");
+    printf("5.Quit\n");
+    printf("Enter your choice : ");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+        case 1: push(item);
+        printf("Enter the elements :");
+        scanf("%d",&item);
+        break;
+        case 2: pop();
+       item=pop();
+       if (item==0)
+        {
+        printf("stack is overflow");
+        }
+           else
+           {
+               printf("popped items=%d\n\n,item");
+           }
+           break;
+        case 3: peek();
+        break;
+      case 4: transverse();
+      break;
+      default: printf("Invalid input\n\n");
+
+           }
+       }
+        }
+   void push(int ele)
+   {
+       if(isFull())
+        {
+       printf("stack is overflow\n");
+        }
+   else
+   {
+       top++;
+       stack[top]=ele;
+       printf("%d pushed\n",ele);
+   }
+   }
+   int isFull()
+   {
+       if(top==CAPACITY-1)
+        {
+     return 1;
+        }
+    else
+    {
+    return 0;
+    }
+   }
+
+int pop()
+{
+if(isEmpty())
+    {
+        printf("stack is underflow\n");
+
+    }
+    else
+    {
+        return stack[top--];
+    }
+}
+
+    int isEmpty()
+    {
+        if(top==-1)
+    {
+    return 1;
+ }
+else
+{
+    return 0;
+
+}
+}
+
+
+
+ void peek()
+ {
+     if(isEmpty())
+     {
+         printf("stack is empty\n");
+     }
+     else
+     {
+         printf("peek element=%d\n",stack[top]);
+     }
+ }
+ void transverse()
+ {
+     if(isEmpty())
+     {
+     printf("stack is empty\n");
+  }
+  else
+  {
+     int i;
+     printf("stack elements:\n");
+for(i=0;i<=top;i++)
+    {
+        printf("%d \n",stack[i]);
+    }
+    }
+ }
